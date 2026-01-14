@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:is(.dark *));
+
+/* ==============================
+   DESIGN TOKENS (Style Guide)
+   ============================== */
+:root {
+  /* Light mode */
+  --background: hsl(0 0% 98%);          /* Very Light Gray */
+  --foreground: hsl(200 15% 8%);        /* Very Dark Blue (Text) */
+
+  --card: hsl(0 0% 100%);               /* White */
+  --card-foreground: hsl(200 15% 8%);
+
+  --border: hsl(0 0% 52%);               /* Dark Gray (Input) */
+  --input: hsl(0 0% 52%);
+
+  --primary: hsl(209 23% 22%);           /* Dark Blue (Elements) */
+  --primary-foreground: hsl(0 0% 100%);
+
+  --muted: hsl(0 0% 98%);
+  --muted-foreground: hsl(0 0% 52%);
+
+  --radius: 0.5rem;
+}
+
+/* Dark mode */
+.dark {
+  --background: hsl(207 26% 17%);        /* Very Dark Blue (BG) */
+  --foreground: hsl(0 0% 100%);          /* White */
+
+  --card: hsl(209 23% 22%);
+  --card-foreground: hsl(0 0% 100%);
+
+  --border: hsl(209 23% 22%);
+  --input: hsl(209 23% 22%);
+
+  --primary: hsl(0 0% 100%);
+  --primary-foreground: hsl(209 23% 22%);
+
+  --muted: hsl(209 23% 22%);
+  --muted-foreground: hsl(0 0% 100%);
+}
+
+/* ==============================
+   TAILWIND TOKEN MAPPING
+   ============================== */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --radius-lg: var(--radius);
+}
+
+/* ==============================
+   BASE STYLES
+   ============================== */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: "Nunito Sans", ui-sans-serif, system-ui;
+    @apply bg-background text-foreground;
+  }
+}
